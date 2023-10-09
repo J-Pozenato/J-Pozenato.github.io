@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Super Formulário</title>
+
+    </head>
+
+    <body>
+        <h1>Conte um segredo</h1>
+
+        <form name="forms" onsubmit="alert('Seu segredo está seguro comigo');" method="POST" action="#">
+            Nome: <input type="text" name="name"><br>
+            Idade: <input type="number" max="120" name="age"><br>
+            Segredo: <input type="password" name="secret"><br>
+            Nível de confidencialidade: <input type="range" name="secret_level"><br>
+            Data: <input type="date"><br><br>
+            
+            Selecione tudo que quiser: <br>
+            <input type="checkbox" name="coisas[]" value="macarrao">Macarrão <br>
+            <input type="checkbox" name="coisas[]" value="lasagna">Lasagna <br>
+            <input type="checkbox" name="coisas[]" value="Udon">Udon <br>
+            <input type="checkbox" name="coisas[]" value="Curry">Curry <br>
+            <br>
+            É um robô?<br>
+            <input type="radio" name="check" value="robo" onclick="">SIM<br>
+            <input type="radio" name="check" value="pessoa">NÃO<br>
+            <br>
+
+
+
+
+            <button type="reset">Limpa tudo</button>
+            
+            <button type="submit" id="send" value="send" disabled="disabled">Enviar</button>
+            <script>        (function() {
+                $('form > input').keyup(function() {
+            
+                    var empty = false;
+                    $('form > input').each(function() {
+                        if ($(this).val() == '') {
+                            empty = true;
+                        }
+                    });
+            
+                    if (empty) {
+                        $('#send').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+                    } else {
+                        $('#send').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+                    }
+                });
+            })()</script>
+        </form>
+    </body>
+</html>
