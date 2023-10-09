@@ -30,24 +30,12 @@
 
             <button type="reset">Limpa tudo</button>
             
-            <button type="submit" id="send" value="send" disabled="disabled">Enviar</button>
-            <script>        (function() {
-                $('form > input').keyup(function() {
-            
-                    var empty = false;
-                    $('form > input').each(function() {
-                        if ($(this).val() == '') {
-                            empty = true;
-                        }
-                    });
-            
-                    if (empty) {
-                        $('#send').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-                    } else {
-                        $('#send').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-                    }
-                });
-            })()</script>
+            <button type="submit">Enviar</button>
+            <br>
+            <br>
+            <a href="index.html">Home Page</a><br>
+    
+
         </form>
     </body>
 </html>
