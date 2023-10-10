@@ -1,51 +1,101 @@
 <html>  
     <head>
         <title>Meu super site v2</title>
+        <style>
+            #left-menu {
+                width: 200px;
+                float: left;
+            }
+            #imagens {
+                margin-left: 250px;
+            }
+            .body{
+                background:linear-gradient(180deg, white, #7fffd4);
+            }
+            #tittleh1{
+                -webkit-text-stroke: 1px black; /* width and color */
+                color: rgb(88, 182, 182)
+            }
+            
+
+        </style>
+
     </head>
-    <body>
-        <h1><i style="color: rgb(88, 182, 182);">Um Site muito incrivel feito em HTML!</i></h1>
-        <h2>
-            <strong>Tem coisas fortes</strong><br>
-        </h2>
-        <p>
-            <strong><i>E também coisas tortas e fortes, que são escritas num textinho legal, não é nada muito incrivel, apenas um monte de palavras jogadas na tela para simular um texto, talvez seria melhor usar um gerador mas cada um tem sua forma de fazer as coisas</i></strong><br>
-        </p>
-        <blockquote>
-            <a href="about.html">Veja mais sobre quem escreveu isso</a>
-        </blockquote>
-        <input type="color"><br>
-        <ul>
-            
-            <li>
-                <a href="https://www.google.com/" title="Google é muito útil" target="_blank">Site útil para aprender coisas legais</a>
-            </li>
-            
-            <li>
-                <a href="https://www.crunchyroll.com/pt-br" title="Eu gosto de animes" target="_blank">Site útil para assistir coisas legais</a>
-            </li>
-            
-            <li>
-                <a href="https://store.steampowered.com/" title="E gosto de jogar" target="_blank">Site útil para jogar coisas legais</a>
-            </li>
-
-            <li>
-                <a href="form.html">Responda esse Formulário se quiser</a>
-            </li>
-
-            <li>
-                <a href="minotaur.html">Joguinho do minotauro que eu fiz</a>
-            </li>
-
-        </ul>
-        <h1>
-            <u>Imagens legais</u>
-        </h1>
+    <body class="body" style="text-align: center;">
+        <div id="header">
+            <h1 id="tittleh1"><i>Um Site muito incrivel feito em HTML!</i></h1>
+            <h2>
+                <strong>Tem coisas fortes</strong><br>
+            </h2>
+            <p>
+                <strong><i>E também coisas tortas e fortes, que são escritas num textinho legal, não é nada muito incrivel, apenas um monte de palavras jogadas na tela para simular um texto, talvez seria melhor usar um gerador mas cada um tem sua forma de fazer as coisas</i></strong><br>
+            </p>
+            <blockquote>
+                <a href="about.html">Veja mais sobre quem escreveu isso</a>
+            </blockquote>
+            Altere as cores: <input type="color" name="color1" value="#ffffff" class="colorPicker"> <input type="color" name="color2" value="#7fffd4" class="colorPicker"> <br>
+        Altera o angulo: <input type="range" name="angle1" value="0" min="0" max="360" class="colorPicker">
+        <script>
+            const picker1 = document.querySelector("input[name='color1']");
+            const picker2 = document.querySelector("input[name='color2']");
+            const anglePicker1 = document.querySelector("input[name='angle1']");
+            const rangeInput = document.getElementsByName("angle1");
+            // No need to loop over all the input elements and set up an event
+            // handler for each. Just set up one event handler at a common ancestor
+            // of the elements you care about and let the event bubble up to be 
+            // handled there
+            document.addEventListener("input", function(event){
+            // Now test to see if the event was triggered by an element you 
+            // wish to handle
+            if(event.target.classList.contains("colorPicker")){
+                // Use template literals to insert JS values into a string:
+                document.body.style.background = 
+                `linear-gradient(${anglePicker1.value}deg, ${picker1.value}, ${picker2.value})`;
+            }
+            });
+        </script>
         
-        <h2><strong>Choco</strong></h2>
-        <img class="Choco" src="Choco.jpg" alt="Choco" width="400" vspace="10" ><br>
-        <h2><i>Fuji</i></h2>
-        <img src="Fuji.jpg" alt="Fuji" width="400" vspace="10"><br>
-        <h2><strong><i>Udon</i></strong></h2>
-        <img src="Udon.jpg" alt="Udon" width="400" vspace="10"><br>
+        </div>
+        <div class="fill">
+        
+        <fieldset id="left-menu" >
+            <div  >
+                <ul id="links" style="text-align: left;">
+                    
+                    <li>
+                        <a href="https://www.google.com/" title="Google é muito útil" target="_blank">Site útil para aprender coisas legais</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.crunchyroll.com/pt-br" title="Eu gosto de animes" target="_blank">Site útil para assistir coisas legais</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://store.steampowered.com/" title="E gosto de jogar" target="_blank">Site útil para jogar coisas legais</a>
+                    </li>
+
+                    <li>
+                        <a href="form.html">Responda esse Formulário se quiser</a>
+                    </li>
+
+                    <li>
+                        <a href="minotaur.html">Joguinho do minotauro que eu fiz</a>
+                    </li>
+
+                </ul>
+            </div>
+        </fieldset>
+            <h1>
+                <u>Imagens legais</u>
+            </h1>
+            <div id="imagens">
+                <h2><strong>Choco</strong></h2>
+                <img class="Choco" src="Choco.jpg" alt="Choco" width="400" vspace="10" ><br>
+                <h2><i>Fuji</i></h2>
+                <img src="Fuji.jpg" alt="Fuji" width="400" vspace="10"><br>
+                <h2><strong><i>Udon</i></strong></h2>
+                <img src="Udon.jpg" alt="Udon" width="400" vspace="10"><br>
+            </div>
+        </div>
     </body>
 </html>
